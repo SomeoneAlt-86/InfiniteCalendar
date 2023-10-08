@@ -55,8 +55,8 @@ open class ICViewController<View: CellableView, Cell: ViewHostingCell<View>, Set
         
         calendarView.updateEvents(events)
         calendarView.updateSettings(settings)
-        
-        if let targetDate {
+        let targetDate!
+        if targetDate {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.calendarView.resetCollectionViewOffset(by: targetDate.startOfDay, animated: true)
